@@ -12,8 +12,8 @@ You can access it with the following links:
  - https://doi.org/10.48550/arXiv.2207.05951 (accepted manuscript version, openly available)
 
 The code in this repository computes the deformation vector field (DVF) of a series of 3D images. It registers the first image with the others by using the pyramidal Lucas-Kanade optical flow algorithm. The two other repositories corresponding to the article mentioned above are the following:
- - Time series prediction with an RNN trained with RTRL: https://github.com/pohl-michel/Time-series-prediction-with-an-RNN-trained-with-RTRL
- - 3D image warping using Nadaraya-Watson non-linear regression: https://github.com/pohl-michel/Time-series-prediction-with-an-RNN-trained-with-RTRL
+ - Time series prediction with an RNN trained with RTRL: https://github.com/pohl-michel/time-series-forecasting-rtrl
+ - 3D image warping using Nadaraya-Watson non-linear regression: https://github.com/pohl-michel/Nadaraya-Watson-3D-image-warping
 
 Please kindly consider citing our article if you use this code in your research. Also, please do not hesitate to look at the other two repositories mentioned above.
 
