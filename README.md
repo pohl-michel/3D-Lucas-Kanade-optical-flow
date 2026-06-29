@@ -1,3 +1,5 @@
+# Volumetric image registration using the pyramidal, iterative Lucas–Kanade optical-flow algorithm
+
 This repository is the first of a series of three repositories containing code that we used in the research corresponding to the following article:
 
 Michel Pohl, Mitsuru Uesaka, Kazuyuki Demachi, Ritu Bhusal Chhatkuli, "Prediction of the motion of chest internal points using a recurrent neural network trained with real-time recurrent learning for latency compensation in lung cancer radiotherapy",
@@ -11,7 +13,7 @@ You can access it with the following links:
  - https://doi.org/10.1016/j.compmedimag.2021.101941 (journal version with restricted access)
  - https://doi.org/10.48550/arXiv.2207.05951 (accepted manuscript version, openly available)
 
-The code in this repository computes the deformation vector field (DVF) of a series of 3D images. It registers the first image with the others by using the pyramidal Lucas-Kanade optical flow algorithm. The two other repositories corresponding to the article mentioned above are the following:
+The code in this repository computes the deformation vector field (DVF) of a series of 3D images. It registers the first image with the others by using the pyramidal Lucas–Kanade optical flow algorithm. The two other repositories corresponding to the article mentioned above are the following:
  - Time series prediction with an RNN trained with RTRL: https://github.com/pohl-michel/time-series-forecasting-rtrl
  - 3D image warping using Nadaraya-Watson non-linear regression: https://github.com/pohl-michel/Nadaraya-Watson-3D-image-warping
 
@@ -20,7 +22,7 @@ Please kindly consider citing our article if you use this code in your research.
 
 The animation below shows a tumor moving (mainly) vertically due to breathing in a 4DCT sequence, along with the time-varying DVF computed using the code in this repository. 
 
-| Tumor motion along the coronal plane (2D projection of the computed 3D DVFs) between the reference frame and the other frames of a 4DCT sequence, computed using the iterative and pyramidal Lucas-Kanade optical flow . | Coronal cross-section of the 3D reference frame of the 4DCT sequence along with the region of interest and tumor contour.|
+| Tumor motion along the coronal plane (2D projection of the computed 3D DVFs) between the reference frame and the other frames of a 4DCT sequence, computed using the iterative and pyramidal Lucas–Kanade optical flow. | Coronal cross-section of the 3D reference frame of the 4DCT sequence along with the region of interest and tumor contour.|
 | :--- | :---|
 | <center><img src="3DOF_4DCT_111_HM10395.gif" style="width:50%; height:auto;"/></center> | <img src="Input images/111_HM10395 4DCT/coronal_cross_section_with_roi_tumor_contour.jpg"/> |
 
@@ -55,6 +57,6 @@ The results of the optimization is saved in the files "DVF optim log file.txt" a
 The images that we used come from the TCIA 4D-lung dataset publicly available here: https://wiki.cancerimagingarchive.net/display/Public/4D-Lung
 
 ----------------------------------------------
-Update (10th October 2024): An adaptation of the code in this repository for 2D image registration (instead of 3D) is available here: https://github.com/pohl-michel/2D-MR-image-prediction. That new repository focuses mainly on video forecasting but it contains an implementation of the iterative and pyramidal Lucas-Kanade optical flow algorithm and a script to perform parameter optimization with grid search as well.
+Update (10th October 2024): An adaptation of the code in this repository for 2D image registration (instead of 3D) is available here: https://github.com/pohl-michel/2D-MR-image-prediction. That new repository focuses mainly on video forecasting but it contains an implementation of the iterative and pyramidal Lucas–Kanade optical flow algorithm and a script to perform parameter optimization with grid search as well.
 
 
