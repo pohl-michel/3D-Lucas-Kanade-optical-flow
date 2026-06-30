@@ -60,6 +60,6 @@ ISSN 0895-6111 [[Published version](https://doi.org/10.1016/j.compmedimag.2021.1
 
 Two other repositories contain code components supporting the article above:
  - Multivariate time-series forecasting with an RNN trained with RTRL: https://github.com/pohl-michel/time-series-forecasting-rtrl
- - 3D image warping with Nadaraya-Watson kernel regression: https://github.com/pohl-michel/Nadaraya-Watson-3D-image-warping
+ - 3D image warping with Nadaraya–Watson kernel regression: https://github.com/pohl-michel/Nadaraya-Watson-3D-image-warping
 
 Please kindly consider citing our article if you use this code in your research.
