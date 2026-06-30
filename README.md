@@ -49,17 +49,17 @@ These images come from the TCIA 4D-lung dataset, which is publicly available: ht
 
 ## References
 
-This repository is the first of a series of three repositories containing code that we used in the research corresponding to the following article:
+This repository supports the findings in the following article:
 
-Michel Pohl, Mitsuru Uesaka, Kazuyuki Demachi, Ritu Bhusal Chhatkuli, ["Prediction of the motion of chest internal points using a recurrent neural network trained with real-time recurrent learning for latency compensation in lung cancer radiotherapy"](https://doi.org/10.1016/j.compmedimag.2021.101941),
+Michel Pohl, Mitsuru Uesaka, Kazuyuki Demachi, Ritu Bhusal Chhatkuli, "Prediction of the motion of chest internal points using a recurrent neural network trained with real-time recurrent learning for latency compensation in lung cancer radiotherapy",
 Computerized Medical Imaging and Graphics,
 Volume 91,
 2021,
 101941,
-ISSN 0895-6111 [[arXiv]](https://doi.org/10.48550/arXiv.2207.05951)
+ISSN 0895-6111 [[Published version](https://doi.org/10.1016/j.compmedimag.2021.101941)] [[arXiv](https://doi.org/10.48550/arXiv.2207.05951)]
 
-The two other repositories corresponding to the article mentioned above are the following:
- - Time series prediction with an RNN trained with RTRL: https://github.com/pohl-michel/time-series-forecasting-rtrl
- - 3D image warping using Nadaraya-Watson non-linear regression: https://github.com/pohl-michel/Nadaraya-Watson-3D-image-warping
+Two other repositories contain code components supporting the article above:
+ - Multivariate time-series forecasting with an RNN trained with RTRL: https://github.com/pohl-michel/time-series-forecasting-rtrl
+ - 3D image warping with Nadaraya-Watson kernel regression: https://github.com/pohl-michel/Nadaraya-Watson-3D-image-warping
 
-Please kindly consider citing our article if you use this code in your research. Also, please do not hesitate to look at the other two repositories mentioned above.
+Please kindly consider citing our article if you use this code in your research.
