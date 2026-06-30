@@ -63,3 +63,8 @@ Two other repositories contain code components supporting the article above:
  - 3D image warping with Nadaraya–Watson kernel regression: https://github.com/pohl-michel/Nadaraya-Watson-3D-image-warping
 
 Please kindly consider citing our article if you use this code in your research.
+
+
+## License
+
+This repository is released under the BSD-3-Clause license.
