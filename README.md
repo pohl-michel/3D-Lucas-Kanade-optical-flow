@@ -4,18 +4,19 @@
 
 This repository contains MATLAB code for registering a sequence of 3D images by estimating deformation vector fields (DVFs) between an initial volume and subsequent volumes using the pyramidal, iterative Lucas–Kanade optical-flow algorithm.
 
-The animation below shows a tumor moving (mainly) vertically due to breathing in a 4DCT sequence, along with the time-varying DVF computed using the code in this repository. 
+The animation below shows a lung tumor moving mainly in the superior–inferior direction due to breathing in a 4D computed tomography (4DCT) sequence, along with the time-varying deformation vector fields (DVFs) estimated using this code.
 
-| Tumor motion along the coronal plane (2D projection of the computed 3D DVFs) between the reference frame and the other frames of a 4DCT sequence, computed using the iterative and pyramidal Lucas–Kanade optical flow. | Coronal cross-section of the 3D reference frame of the 4DCT sequence along with the region of interest and tumor contour.|
-| :--- | :---|
-| <center><img src="3DOF_4DCT_111_HM10395.gif" style="width:50%; height:auto;"/></center> | <img src="Input images/111_HM10395 4DCT/coronal_cross_section_with_roi_tumor_contour.jpg"/> |
 
-Our implementation is based on the following research article (there are some small differences though):
-Bouguet, Jean-Yves, 
-"Pyramidal implementation of the affine Lucas Kanade feature tracker description of the algorithm.", 
-Intel corporation 5.1-10 (2001): 4. 
+<p align="center"> <img src="3DOF_4DCT_111_HM10395.gif" width="30%" alt="Estimated 3D lung tumor motion projected onto a coronal plane"> </p>
 
-Note: An adaptation of the code in this repository for 2D image registration (instead of 3D) is available here: https://github.com/pohl-michel/2D-MR-image-prediction. That repository focuses mainly on video forecasting but it contains an implementation of the iterative and pyramidal Lucas–Kanade optical flow algorithm, used during the first step in the forecasting pipeline.
+<p align="center"> <em> Estimated 3D lung-tumor motion between the reference frame and the subsequent frames of a 4DCT sequence, projected onto a coronal plane. The corresponding 4DCT cross-sections are displayed in the background. </em> </p>
+
+<p align="center"> <img src="Input images/111_HM10395 4DCT/coronal_cross_section_with_roi_tumor_contour.jpg" width="50%" alt="Reference 4DCT frame with region of interest and tumor contour"> </p>
+
+<p align="center"> <em> Coronal cross-section of the reference frame of the same 4DCT sequence, along with the region of interest and tumor contour. </em> </p>
+
+**Note:** An adaptation of this Lucas–Kanade optical-flow implementation for 2D image registration is available in the [`2D-MR-image-prediction`](https://github.com/pohl-michel/2D-MR-image-prediction) repository, where it is used as the first step of a cine-MR frame-forecasting algorithm. 
+
 
 ## How to run
 
@@ -56,14 +57,18 @@ Computerized Medical Imaging and Graphics,
 Volume 91,
 2021,
 101941,
-ISSN 0895-6111 [[Published version](https://doi.org/10.1016/j.compmedimag.2021.101941)] [[arXiv](https://doi.org/10.48550/arXiv.2207.05951)]
+ISSN 0895-6111 [[published version](https://doi.org/10.1016/j.compmedimag.2021.101941)] [[arXiv](https://doi.org/10.48550/arXiv.2207.05951)]
 
 Two other repositories contain code components supporting the article above:
  - Multivariate time-series forecasting with an RNN trained with RTRL: https://github.com/pohl-michel/time-series-forecasting-rtrl
  - 3D image warping with Nadaraya–Watson kernel regression: https://github.com/pohl-michel/Nadaraya-Watson-3D-image-warping
 
-Please kindly consider citing our article if you use this code in your research.
+Please kindly consider citing our article if you use this code in your research. Our implementation of the Lucas–Kanade optical-flow algorithm is based on the pyramidal, iterative framework described in the following article:
 
+Bouguet, Jean-Yves, 
+"Pyramidal implementation of the affine Lucas Kanade feature tracker description of the algorithm.", 
+Intel corporation 5.1-10 (2001): 4. 
+[[article]](https://robots.stanford.edu/cs223b04/algo_affine_tracking.pdf)
 
 ## License
 
