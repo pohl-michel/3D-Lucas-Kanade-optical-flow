@@ -6,14 +6,23 @@ This repository contains MATLAB code for registering a sequence of 3D images by 
 
 The animation below shows a lung tumor moving mainly in the superior–inferior direction due to breathing in a 4D computed tomography (4DCT) sequence, along with the time-varying deformation vector fields (DVFs) estimated using this code.
 
+<table align="center" border="0" cellspacing="0" cellpadding="4">
+  <tr>
+    <td align="center" valign="middle" width="38%">
+      <img src="3DOF_4DCT_111_HM10395.gif" width="100%" alt="Estimated 3D lung-tumor motion projected onto a coronal plane">
+    </td>
+    <td width="4%"></td>
+    <td align="center" valign="middle" width="58%">
+      <img src="Input%20images/111_HM10395%204DCT/coronal_cross_section_with_roi_tumor_contour.jpg" width="100%" alt="Coronal cross-section of the reference 4DCT frame with region of interest and tumor contour">
+    </td>
+  </tr>
+</table>
 
-<p align="center"> <img src="3DOF_4DCT_111_HM10395.gif" width="30%" alt="Estimated 3D lung tumor motion projected onto a coronal plane"> </p>
-
-<p align="center"> <em> Estimated 3D lung-tumor motion between the reference frame and the subsequent frames of a 4DCT sequence, projected onto a coronal plane. The corresponding 4DCT cross-sections are displayed in the background. </em> </p>
-
-<p align="center"> <img src="Input images/111_HM10395 4DCT/coronal_cross_section_with_roi_tumor_contour.jpg" width="50%" alt="Reference 4DCT frame with region of interest and tumor contour"> </p>
-
-<p align="center"> <em> Coronal cross-section of the reference frame of the same 4DCT sequence, along with the region of interest and tumor contour. </em> </p>
+<p align="center">
+  <em>
+    Left: estimated 3D lung-tumor motion between the reference frame and subsequent frames of a 4DCT sequence, projected onto a coronal plane and displayed over the corresponding 4DCT cross-sections. Right: coronal cross-section from the reference frame of the same sequence, along with the region of interest and tumor contour..
+  </em>
+</p>
 
 **Note:** An adaptation of this Lucas–Kanade optical-flow implementation for 2D image registration is available in the [`2D-MR-image-prediction`](https://github.com/pohl-michel/2D-MR-image-prediction) repository, where it is used as the first step of a cine-MR frame-forecasting algorithm. 
 
@@ -26,7 +35,16 @@ The input image sequences to process are specified in the `input_im_dir_suffix_t
  - `Lucas_Kanade_Pyramidal_Optical_Flow_Main.m`
  - `Lucas_Kanade_Pyramidal_Optical_Flow_Optimization_Main.m`
 
-Each input sequence folder contains the following configuration files:
+
+## How to run
+
+### Optical-flow estimation with specified hyperparameters
+
+Optical-flow calculation for a specified set of parameters can be performed by executing `Lucas_Kanade_Pyramidal_Optical_Flow_Main.m` in MATLAB from the repository root.
+
+Program behavior is controlled by manually setting the boolean fields of the `beh_par` structure defined in `load_behavior_parameters3D.m`.
+
+Parameters specific to each input image sequence can be found in the following configuration files, located in each input sequence folder:
 
 <table align="center">
   <thead>
@@ -46,21 +64,14 @@ Each input sequence folder contains the following configuration files:
     </tr>
     <tr>
       <td><code>3Ddisp_par.xlsx</code></td>
-      <td>Figure display and saving</td>
+      <td>Figure display and saving parameters</td>
     </tr>
   </tbody>
 </table>
 
-
-## How to run
-
-### Optical-flow estimation with specified hyperparameters
-
-Optical-flow calculation for a specified set of parameters can be performed by executing `Lucas_Kanade_Pyramidal_Optical_Flow_Main.m` in MATLAB from the repository root.
-
-Program behavior is controlled by manually setting the boolean fields of the beh_par structure defined in `load_behavior_parameters3D.m`.
-
 The output DVF arrays, visualization files, and performance log files, including the registration root-mean-square error, are saved in the folders `Optical flow calculation results mat files`, `Optical flow projection images`, and `Log files`, respectively. These folders are automatically created if they do not exist.
+
+**Note:** An optional Python utility, `create_gif.py`, can be run to assemble selected optical-flow projection images into an animated GIF. The script expects JPG frames named `frame_1.jpg`, `frame_2.jpg`, etc. in the `Optical flow projection images/out` folder and writes `output.gif` in the repository root.
 
 
 ### Hyperparameter selection with grid search
@@ -74,7 +85,9 @@ Grid-search performance is recorded in `DVF optim log file.txt` and `DVF hyperpa
 
 ## Requirements
 
-Running this code requires MATLAB and the Image Processing Toolbox, as it calls functions such as `imgaussfilt3` and `dicomread`.
+Running the MATLAB code requires MATLAB's Image Processing Toolbox, as it calls functions such as `imgaussfilt3` and `dicomread`.
+
+The optional GIF-generation utility `create_gif.py` requires Python with Pillow, imported as `PIL`.
 
 
 ## References
