@@ -20,7 +20,7 @@ The animation below shows a lung tumor moving mainly in the superior–inferior 
 
 <p align="center">
   <em>
-    Left: estimated 3D lung-tumor motion between the reference frame and subsequent frames of a 4DCT sequence, projected onto a coronal plane and displayed over the corresponding 4DCT cross-sections. Right: coronal cross-section from the reference frame of the same sequence, along with the region of interest and tumor contour..
+    Left: estimated 3D lung-tumor motion between the reference frame and subsequent frames of a 4DCT sequence, projected onto a coronal plane and displayed over the corresponding 4DCT cross-sections. Right: coronal cross-section from the reference frame of the same sequence, along with the region of interest and tumor contour.
   </em>
 </p>
 
@@ -108,8 +108,8 @@ Two other repositories contain code components supporting the article above:
 Please kindly consider citing our article if you use this code in your research. Our implementation of the Lucas–Kanade optical-flow algorithm is based on the pyramidal, iterative framework described in the following article:
 
 Jean-Yves Bouguet, 
-"Pyramidal implementation of the affine Lucas Kanade feature tracker description of the algorithm.", 
-Intel corporation 5.1-10 (2001): 4. 
+"Pyramidal implementation of the affine Lucas Kanade feature tracker description of the algorithm", 
+Intel corporation 5.1-10 (2001): 4
 [[article]](https://robots.stanford.edu/cs223b04/algo_affine_tracking.pdf)
 
 
