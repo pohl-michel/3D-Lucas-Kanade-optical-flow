@@ -18,34 +18,63 @@ The animation below shows a lung tumor moving mainly in the superior–inferior 
 **Note:** An adaptation of this Lucas–Kanade optical-flow implementation for 2D image registration is available in the [`2D-MR-image-prediction`](https://github.com/pohl-michel/2D-MR-image-prediction) repository, where it is used as the first step of a cine-MR frame-forecasting algorithm. 
 
 
-## How to run
-
-The main function to execute is "Lucas_Kanade_Pyramidal_Optical_Flow_Main.m".
-The input image sequence is placed in the "Input images" folder.
-Parameters concerning the image sequence itself, the DVF calculation, and the DVF display
-are located respectively in the "3Dim_seq_par.xlsx" file, the "3DOF_calc_par.xlsx" file, and the "3Ddisp_par.xlsx" file.
-
-The behavior of the program is controlled by the `beh_par` structure defined in `load_behavior_parameters3D()`,
-and its fields can be changed manually.
-Also, the name of the input sequences whose DVF is computed needs to be specified in the `input_im_dir_suffix_tab` array.
-
-The resulting DVF, the DVF visualization, and the evaluation log files 
-will be saved respectively in the folders "Optical flow calculation results mat files",
-"Optical flow projection images", and "Log files".
-The root-mean-square error (RMSE) of the registration can be found in that log file.
-
-Also, by running "Lucas_Kanade_Pyramidal_Optical_Flow_Optimization_Main.m", one can perform hyper-parameter optimization by grid search to find an accurate DVF.
-The hyper-parameters grid is specified in the file "load_3DOF_hyperparameters.m".
-The results of the optimization is saved in the files "DVF optim log file.txt" and "DVF hyperpar influence (date and time).txt" 
-
-
 ## Image data
 
-We also included three 4DCT sequences of tumors of patients with lung cancer,
-acquired by a 16-slice helical CT simulator (Brilliance Big Bore, Philips Medical System)
-in Virginia Commonwealth University Massey Cancer Center.
+The input images are located in the `Input images` folder. This repository includes three chest 4DCT sequences from patients with lung cancer, derived from the [TCIA 4D-Lung dataset](https://www.cancerimagingarchive.net/collection/4d-lung/).
 
-These images come from the TCIA 4D-lung dataset, which is publicly available: https://wiki.cancerimagingarchive.net/display/Public/4D-Lung
+The input image sequences to process are specified in the `input_im_dir_suffix_tab` array inside the main executable files:
+ - `Lucas_Kanade_Pyramidal_Optical_Flow_Main.m`
+ - `Lucas_Kanade_Pyramidal_Optical_Flow_Optimization_Main.m`
+
+Each input sequence folder contains the following configuration files:
+
+<table align="center">
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Parameters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>3Dim_seq_par.xlsx</code></td>
+      <td>Image-sequence properties</td>
+    </tr>
+    <tr>
+      <td><code>3DOF_calc_par.xlsx</code></td>
+      <td>Optical-flow calculation parameters</td>
+    </tr>
+    <tr>
+      <td><code>3Ddisp_par.xlsx</code></td>
+      <td>Figure display and saving</td>
+    </tr>
+  </tbody>
+</table>
+
+
+## How to run
+
+### Optical-flow estimation with specified hyperparameters
+
+Optical-flow calculation for a specified set of parameters can be performed by executing `Lucas_Kanade_Pyramidal_Optical_Flow_Main.m` in MATLAB from the repository root.
+
+Program behavior is controlled by manually setting the boolean fields of the beh_par structure defined in `load_behavior_parameters3D.m`.
+
+The output DVF arrays, visualization files, and performance log files, including the registration root-mean-square error, are saved in the folders `Optical flow calculation results mat files`, `Optical flow projection images`, and `Log files`, respectively. These folders are automatically created if they do not exist.
+
+
+### Hyperparameter selection with grid search
+
+Grid-search-based hyperparameter selection can be performed by executing `Lucas_Kanade_Pyramidal_Optical_Flow_Optimization_Main.m` in MATLAB from the repository root.
+
+The hyperparameter grid can be configured in `load_3DOF_hyperparameters.m`.
+
+Grid-search performance is recorded in `DVF optim log file.txt` and `DVF hyperpar influence [date and time].txt` inside the `Log files` folder.
+
+
+## Requirements
+
+Running this code requires MATLAB and the Image Processing Toolbox, as it calls functions such as `imgaussfilt3` and `dicomread`.
 
 
 ## References
@@ -65,10 +94,11 @@ Two other repositories contain code components supporting the article above:
 
 Please kindly consider citing our article if you use this code in your research. Our implementation of the Lucas–Kanade optical-flow algorithm is based on the pyramidal, iterative framework described in the following article:
 
-Bouguet, Jean-Yves, 
+Jean-Yves Bouguet, 
 "Pyramidal implementation of the affine Lucas Kanade feature tracker description of the algorithm.", 
 Intel corporation 5.1-10 (2001): 4. 
 [[article]](https://robots.stanford.edu/cs223b04/algo_affine_tracking.pdf)
+
 
 ## License
 
